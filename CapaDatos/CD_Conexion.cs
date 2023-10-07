@@ -28,6 +28,8 @@ namespace CapaDatos
             return res;
         }
 
+
+
         public string  cerrar()
         {
             try
