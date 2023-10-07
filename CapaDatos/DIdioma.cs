@@ -64,6 +64,7 @@ namespace CapaDatos
             {
                 //Cerrar la conexión a la base de datos
                 Conect.cerrar();
+                //cambio
             }
         }
         public void MostarIdioma(ref DataTable dt)
