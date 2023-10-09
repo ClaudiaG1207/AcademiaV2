@@ -12,13 +12,14 @@ namespace CapaDatos
     public class DUsuarios
     {
         CD_Conexion Conect = new CD_Conexion();
-        public void Insertar(string Usuario, string Password)
+        public void Insertar(string Usuario, string Password, int IdCargo)
         {
             Conect.Abrir();
             SqlCommand AggUser = new SqlCommand("Agregar_Usuario", CD_Conexion.conectar);
             AggUser.CommandType = CommandType.StoredProcedure;
             AggUser.Parameters.AddWithValue("@Usuario",Usuario);
             AggUser.Parameters.AddWithValue("@Clave", Password);
+            AggUser.Parameters.AddWithValue("@IdCargo", IdCargo);
             AggUser.ExecuteNonQuery();
             Conect.cerrar();
         }
@@ -55,7 +56,7 @@ namespace CapaDatos
             Conect.cerrar();
             return ContraseñaHash;
         }
-        public void editarUsuario(int idUS, string us, string clave )
+        public void editarUsuario(int idUS, string us, string clave, int IdCargo )
         {
             try
             {
@@ -65,6 +66,9 @@ namespace CapaDatos
                 cmd.Parameters.AddWithValue("@IdUsuario", idUS);
                 cmd.Parameters.AddWithValue("@Usuario", us);
                 cmd.Parameters.AddWithValue("@Clave", clave);
+                cmd.Parameters.AddWithValue("@IdCargo", IdCargo);
+
+
                 cmd.ExecuteNonQuery();
 
 
@@ -97,6 +101,50 @@ namespace CapaDatos
             finally
             {
                 Conect.cerrar();
+            }
+        }
+        public void MostrarCargo(ComboBox combo)
+        {
+            try
+            {
+                //Crear la colección para el autocompletado
+                AutoCompleteStringCollection lista = new AutoCompleteStringCollection();
+
+                //Abrir la conexión a la base de datos
+                Conect.Abrir();
+
+                //Crear el comando SQL para el procedimiento almacenado
+                SqlCommand da = new SqlCommand("MostrarCargo", CD_Conexion.conectar);
+                da.CommandType = CommandType.StoredProcedure;
+
+                //Crear el adapatador para ejecuatr el comando y llenar los datos en el DataTable
+                SqlDataAdapter cb = new SqlDataAdapter(da);
+                DataTable dt = new DataTable();
+                cb.Fill(dt);
+
+                //Configurar el combobox para mostrar los datos
+                combo.ValueMember = "IDCargo";
+                combo.DisplayMember = "NombreCargo";
+                combo.DataSource = dt;
+
+                //Agregar los datos a la colección de autocompletado
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    lista.Add(dt.Rows[i]["NombreCargo"].ToString());
+                }
+
+                //Asignar la colección de autocompletado al combobox
+                combo.AutoCompleteCustomSource = lista;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                //Cerrar la conexión a la base de datos
+                Conect.cerrar();
+                //cambio
             }
         }
     }

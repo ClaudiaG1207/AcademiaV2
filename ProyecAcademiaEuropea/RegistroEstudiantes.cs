@@ -11,15 +11,33 @@ using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ProyecAcademiaEuropea
 {
     public partial class RegistroEstudiantes : Form
     {
+        private bool labelsVerdes = false;
         public RegistroEstudiantes()
         {
             InitializeComponent();
             MostrarEstudiante();
+            this.toolTip1.SetToolTip(this.TxtCorreoEstu, "El correo debe ser ejemplo: nombre@abc.com");
+            TxtCorreoEstu.TextChanged += TxtCorreoEstu_TextChanged1;
+        }
+
+        private void TxtCorreoEstu_TextChanged1(object sender, EventArgs e)
+        {
+            var textBox = (System.Windows.Forms.TextBox)sender;
+            if (textBox == TxtCorreoEstu)
+            {
+                lblcorreo.ForeColor = Validaciones.EsCorreoValido(TxtCorreoEstu.Text) ? Color.Green : Color.Red;
+                // Actualizar los colores de los labels y validar si todos están en verde
+                labelsVerdes = Validaciones.ValidarLabelsVerdes(lblcorreo);
+
+                BtnGuardar.Enabled = labelsVerdes;
+                btnActualizar.Enabled = labelsVerdes;
+            }
         }
 
         NEstudiantes Estudiante = new NEstudiantes();

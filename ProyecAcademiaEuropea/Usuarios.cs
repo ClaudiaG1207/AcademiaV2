@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace ProyecAcademiaEuropea
 {
-    public partial class Usuarios : Form
+    public partial class frmUsuarios : Form
     {
-        public Usuarios()
+        public frmUsuarios()
         {
             InitializeComponent();
         }
@@ -23,14 +23,15 @@ namespace ProyecAcademiaEuropea
         public string USUARIO;
         public string CLAVE;
         public string FNom;
+        public int IdCargo;
         public string FClave;
         int idUsa;
         private void INSERTAR()
         {
             USUARIO= TxtUsuario.Text;
             CLAVE = TxtContra.Text;
-            Usuario.AgregarUsuario(USUARIO, CLAVE);
-
+            IdCargo=int.Parse(cbCargo.SelectedValue.ToString());
+            Usuario.AgregarUsuario(USUARIO, CLAVE, IdCargo);
             TxtContra.Clear();
             TxtUsuario.Clear();
             MostrarUsuarios();
@@ -67,7 +68,11 @@ namespace ProyecAcademiaEuropea
             funcion.MostarUsuarios(dt);
             dtUsuarios.DataSource = dt;
             Bases.DiseñoDtv(ref dtUsuarios);
-            dtUsuarios.Columns[3].Visible= false;
+           dtUsuarios.Columns[3].Visible= false;
+           dtUsuarios.Columns[4].Visible= false;
+            
+            
+            MostrarCargo();
         }
         private void pictureBox2_Click(object sender, EventArgs e)
         {
@@ -87,8 +92,9 @@ namespace ProyecAcademiaEuropea
         {
 
             idUsa = int.Parse(dtUsuarios.SelectedCells[3].Value.ToString());
-            TxtUsuario.Text = dtUsuarios.SelectedCells[4].Value.ToString();
-            TxtContra.Text = dtUsuarios.SelectedCells[5].Value.ToString();
+            TxtUsuario.Text = dtUsuarios.SelectedCells[5].Value.ToString();
+            TxtContra.Text = dtUsuarios.SelectedCells[6].Value.ToString();
+            IdCargo= int.Parse(dtUsuarios.SelectedCells[4].Value.ToString());
         }
         private void EditarUsuario()
 
@@ -96,9 +102,10 @@ namespace ProyecAcademiaEuropea
 
             USUARIO = TxtUsuario.Text;
             CLAVE = TxtContra.Text;
+            IdCargo = int.Parse(cbCargo.SelectedValue.ToString());
             TxtContra.Clear();
             TxtUsuario.Clear();
-            Usuario.EditarUS(idUsa,USUARIO,CLAVE);
+            Usuario.EditarUS(idUsa,USUARIO,CLAVE, IdCargo);
             MostrarUsuarios();
             MessageBox.Show("Se actualizo el regitro con exito", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
@@ -109,7 +116,7 @@ namespace ProyecAcademiaEuropea
         }
         private void dtUsuarios_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == dtUsuarios.Columns["EliminarUsuario"].Index)
+            if (e.ColumnIndex == dtUsuarios.Columns["Eliminar"].Index)
             {
                 DialogResult result = MessageBox.Show("¿Desea eliminar este usuario?", "Eliminando registros", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (result == DialogResult.OK)
@@ -128,25 +135,7 @@ namespace ProyecAcademiaEuropea
 
 
         }
-        private void dtUsuarios_CellClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.ColumnIndex == dtUsuarios.Columns["Eliminar"].Index)
-            {
-                DialogResult result = MessageBox.Show("¿Desea eliminar este estudiante?", "Eliminando registros", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                if (result == DialogResult.OK)
-                {
-                    EliminarUsuario();
-                    MostrarUsuarios();
-                }
-
-            }
-            if (e.ColumnIndex == dtUsuarios.Columns["Editar"].Index)
-            {
-                CapturarDatos();
-                BtnEditar.Visible = true;
-                BtnGuardar.Visible = false;
-            }
-        }
+        
         private void BtnEditar_Click(object sender, EventArgs e)
         {
             try
@@ -165,6 +154,11 @@ namespace ProyecAcademiaEuropea
         private void TxtContra_TextChanged(object sender, EventArgs e)
         {
             ValidarCampos();
+        }
+        private void MostrarCargo()
+        {
+            
+            Usuario.MostarCargos(cbCargo);
         }
     }
 }

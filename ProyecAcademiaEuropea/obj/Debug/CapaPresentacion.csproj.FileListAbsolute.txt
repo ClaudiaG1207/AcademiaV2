@@ -112,9 +112,9 @@ C:\Users\Dixon Blandon\Source\Repos\ClaudiaG1207\AcademiaV2\ProyecAcademiaEurope
 C:\Users\Dixon Blandon\Source\Repos\ClaudiaG1207\AcademiaV2\ProyecAcademiaEuropea\obj\Debug\ProyecAcademiaEuropea.Properties.Resources.resources
 C:\Users\Dixon Blandon\Source\Repos\ClaudiaG1207\AcademiaV2\ProyecAcademiaEuropea\obj\Debug\ProyecAcademiaEuropea.RegistroEstudiantes.resources
 C:\Users\Dixon Blandon\Source\Repos\ClaudiaG1207\AcademiaV2\ProyecAcademiaEuropea\obj\Debug\ProyecAcademiaEuropea.ResgistroPersonal.resources
-C:\Users\Dixon Blandon\Source\Repos\ClaudiaG1207\AcademiaV2\ProyecAcademiaEuropea\obj\Debug\ProyecAcademiaEuropea.Usuarios.resources
 C:\Users\Dixon Blandon\Source\Repos\ClaudiaG1207\AcademiaV2\ProyecAcademiaEuropea\obj\Debug\CapaPresentacion.csproj.GenerateResource.cache
 C:\Users\Dixon Blandon\Source\Repos\ClaudiaG1207\AcademiaV2\ProyecAcademiaEuropea\obj\Debug\CapaPresentacion.csproj.CoreCompileInputs.cache
 C:\Users\Dixon Blandon\Source\Repos\ClaudiaG1207\AcademiaV2\ProyecAcademiaEuropea\obj\Debug\CapaPresentacion.csproj.CopyComplete
 C:\Users\Dixon Blandon\Source\Repos\ClaudiaG1207\AcademiaV2\ProyecAcademiaEuropea\obj\Debug\ProyecAcademiaEuropea.exe
 C:\Users\Dixon Blandon\Source\Repos\ClaudiaG1207\AcademiaV2\ProyecAcademiaEuropea\obj\Debug\ProyecAcademiaEuropea.pdb
+C:\Users\Dixon Blandon\source\repos\ClaudiaG1207\AcademiaV2\ProyecAcademiaEuropea\obj\Debug\ProyecAcademiaEuropea.frmUsuarios.resources

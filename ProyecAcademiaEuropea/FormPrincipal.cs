@@ -49,7 +49,7 @@ namespace ProyecAcademiaEuropea
         private void txtusuarios_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Usuarios u = new Usuarios();
+            frmUsuarios u = new frmUsuarios();
             u.Show();
         }
 

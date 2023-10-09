@@ -124,6 +124,7 @@
     <Compile Include="Usuarios.Designer.cs">
       <DependentUpon>Usuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Validaciones.cs" />
     <EmbeddedResource Include="CorreoRecu.resx">
       <DependentUpon>CorreoRecu.cs</DependentUpon>
     </EmbeddedResource>

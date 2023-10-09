@@ -7,6 +7,7 @@ using System.Net.Mail;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace CapaNegocio
 {
@@ -16,15 +17,15 @@ namespace CapaNegocio
         DUsuarios Usuariop = new DUsuarios();
         Hash hashPassword = new Hash();
 
-        public void AgregarUsuario( string NombreUsuario, string Contrasena)
+        public void AgregarUsuario( string NombreUsuario, string Contrasena, int IdCargo)
         {
             string ContrasenaHasheada = hashPassword.PasswordHash(Contrasena);
-            Usuariop.Insertar( NombreUsuario, ContrasenaHasheada);
+            Usuariop.Insertar( NombreUsuario, ContrasenaHasheada, IdCargo);
         }
-        public void EditarUS(int id, string NombreUsuario, string Contrasena)
+        public void EditarUS(int id, string NombreUsuario, string Contrasena, int IdCargo)
         {
             string ContrasenaHasheada = hashPassword.PasswordHash(Contrasena);
-            Usuariop.editarUsuario(id, NombreUsuario, ContrasenaHasheada);
+            Usuariop.editarUsuario(id, NombreUsuario, ContrasenaHasheada, IdCargo);
         }
         public void MostarUsuarios(DataTable dt)
         {
@@ -100,6 +101,10 @@ namespace CapaNegocio
         public void EliminarUsuario(int id)
         {
             Usuariop.EliminarUsuario(id);
+        }
+        public void MostarCargos(ComboBox combo)
+        {
+            Usuariop.MostrarCargo(combo);
         }
     }
 

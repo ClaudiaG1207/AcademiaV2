@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistroEstudiantes));
             this.LbEstuantesR = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -58,6 +59,8 @@
             this.btnActualizar = new System.Windows.Forms.Button();
             this.txtbuscar = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.lblcorreo = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dtEstudiantes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnMini)).BeginInit();
@@ -405,12 +408,25 @@
             this.label10.TabIndex = 69;
             this.label10.Text = "Buscar:";
             // 
+            // lblcorreo
+            // 
+            this.lblcorreo.AutoSize = true;
+            this.lblcorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblcorreo.ForeColor = System.Drawing.Color.Red;
+            this.lblcorreo.Location = new System.Drawing.Point(962, 462);
+            this.lblcorreo.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblcorreo.Name = "lblcorreo";
+            this.lblcorreo.Size = new System.Drawing.Size(39, 51);
+            this.lblcorreo.TabIndex = 643;
+            this.lblcorreo.Text = "*";
+            // 
             // RegistroEstudiantes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Navy;
             this.ClientSize = new System.Drawing.Size(2013, 1134);
+            this.Controls.Add(this.lblcorreo);
             this.Controls.Add(this.txtbuscar);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.btnActualizar);
@@ -483,5 +499,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn btnSeleccionar;
         private System.Windows.Forms.DataGridViewImageColumn Eliminar;
         private System.Windows.Forms.DataGridViewImageColumn Editar;
+        private System.Windows.Forms.Label lblcorreo;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
