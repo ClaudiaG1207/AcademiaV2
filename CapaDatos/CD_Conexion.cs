@@ -10,7 +10,8 @@ namespace CapaDatos
 {
    public class CD_Conexion
     {
-        public static SqlConnection conectar = new SqlConnection(@"Data source=CLAUDIA12; Initial Catalog=AcademiaEuropea; Integrated Security = True");
+        public static SqlConnection conectar = new SqlConnection(@"Data source=DESKTOP-VG9DFN6; Initial Catalog=AcademiaEuropea; Integrated Security = True");
+       // public static SqlConnection conectar = new SqlConnection(@"Data source=CLAUDIA12; Initial Catalog=AcademiaEuropea; Integrated Security = True");
         private string res;
         public string Abrir()
         {

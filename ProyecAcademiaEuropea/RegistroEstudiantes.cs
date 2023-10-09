@@ -41,8 +41,27 @@ namespace ProyecAcademiaEuropea
             FEdad = int.Parse(TxtEdadEStu.Text);
             FCel = int.Parse(TxtCelEstu.Text);
             FCorreo = TxtCorreoEstu.Text;
-            FNacionalidad = CBNacionalidad.Text;
+            FNacionalidad = CBNacionalidad.Text;           
+            Estudiante.AgregarEstudiante(FCedula, FNomAp, FDirec, FEdad, FCel, FCorreo, FNacionalidad);
+            MostrarEstudiante();
+           
+        }
+        private void EditarEstudiantes()
 
+        {
+            FCedula = TxtCedEstu.Text;
+            FNomAp = TxtNomEstu.Text;
+            FDirec = TxtDirecEstu.Text;
+            FEdad = int.Parse(TxtEdadEStu.Text);
+            FCel = int.Parse(TxtCelEstu.Text);
+            FCorreo = TxtCorreoEstu.Text;
+            FNacionalidad = CBNacionalidad.Text;
+            Estudiante.editarestudiante(idestudiante, FCedula, FNomAp, FDirec, FEdad, FCel, FCorreo, FNacionalidad);
+            MostrarEstudiante();
+            //LimpiarCampos();
+        }
+        private void LimpiarCampos()
+        {
             TxtCedEstu.Clear();
             TxtNomEstu.Clear();
             TxtDirecEstu.Clear();
@@ -50,11 +69,7 @@ namespace ProyecAcademiaEuropea
             TxtCelEstu.Clear();
             TxtCorreoEstu.Clear();
             CBNacionalidad.Text = "";
-            Estudiante.AgregarEstudiante(FCedula, FNomAp, FDirec, FEdad, FCel, FCorreo, FNacionalidad);
-            MostrarEstudiante();
-            MessageBox.Show("Se realizo el regitro con exito");
         }
-
         private void MostrarEstudiante()
         {
             DataTable dt = new DataTable();
@@ -104,6 +119,7 @@ namespace ProyecAcademiaEuropea
             try
             {
                 INSERTAR();
+                //LimpiarCampos();
 
             }
             catch (Exception ex)
@@ -145,29 +161,7 @@ namespace ProyecAcademiaEuropea
             CBNacionalidad.Text = dtEstudiantes.SelectedCells[10].Value.ToString();
 
         }
-        private void EditarEstudiantes()
-
-        {
-
-            FCedula = TxtCedEstu.Text;
-            FNomAp = TxtNomEstu.Text;
-            FDirec = TxtDirecEstu.Text;
-            FEdad = int.Parse(TxtEdadEStu.Text);
-            FCel = int.Parse(TxtCelEstu.Text);
-            FCorreo = TxtCorreoEstu.Text;
-            FNacionalidad = CBNacionalidad.Text;
-
-            TxtCedEstu.Clear();
-            TxtNomEstu.Clear();
-            TxtDirecEstu.Clear();
-            TxtEdadEStu.Clear();
-            TxtCelEstu.Clear();
-            TxtCorreoEstu.Clear();
-            CBNacionalidad.Text = "";
-            Estudiante.editarestudiante(idestudiante, FCedula, FNomAp, FDirec, FEdad, FCel, FCorreo, FNacionalidad);
-            MostrarEstudiante();
-            MessageBox.Show("Se actualizo el regitro con exito", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
+       
         private void EliminarEstudiante()
         {
             idestudiante = int.Parse(dtEstudiantes.SelectedCells[3].Value.ToString());

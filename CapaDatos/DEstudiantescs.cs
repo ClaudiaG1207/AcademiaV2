@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using CapaDatos;
 using System.Windows.Forms;
 using System.Runtime.ConstrainedExecution;
+using System.Diagnostics.Contracts;
 
 namespace CapaDatos
 {
@@ -15,21 +16,35 @@ namespace CapaDatos
     {
         CD_Conexion Conect = new CD_Conexion();
 
-        public void InseeEtudiantes(string ced, string NomA, string direc, int Edad, int cel, string correo, string nacionalidad )
+        public bool InseeEtudiantes(string ced, string NomA, string direc, int Edad, int cel, string correo, string nacionalidad )
         {
-            Conect.Abrir();
-            SqlCommand AggUser = new SqlCommand("AgregarEstudiante", CD_Conexion.conectar);
-            AggUser.CommandType = CommandType.StoredProcedure;
-            AggUser.Parameters.AddWithValue("@Cedula", ced);
-            AggUser.Parameters.AddWithValue("@NomAp", NomA);
-            AggUser.Parameters.AddWithValue("@Direccion", direc);
-            AggUser.Parameters.AddWithValue("@Edad", Edad);
-            AggUser.Parameters.AddWithValue("@cel", cel);
-            AggUser.Parameters.AddWithValue("@Correo", correo);
-            AggUser.Parameters.AddWithValue("@Nacionalidad", nacionalidad);
-            AggUser.ExecuteNonQuery();
-            Conect.cerrar();
+            try
+            {
+                Conect.Abrir();
+                SqlCommand AggUser = new SqlCommand("AgregarEstudiante", CD_Conexion.conectar);
+                AggUser.CommandType = CommandType.StoredProcedure;
+                AggUser.Parameters.AddWithValue("@Cedula", ced);
+                AggUser.Parameters.AddWithValue("@NomAp", NomA);
+                AggUser.Parameters.AddWithValue("@Direccion", direc);
+                AggUser.Parameters.AddWithValue("@Edad", Edad);
+                AggUser.Parameters.AddWithValue("@cel", cel);
+                AggUser.Parameters.AddWithValue("@Correo", correo);
+                AggUser.Parameters.AddWithValue("@Nacionalidad", nacionalidad);
+                AggUser.ExecuteNonQuery();
+                MessageBox.Show("Se realizo el regitro con exito", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return true;
 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+            finally
+            {
+                Conect.cerrar();
+
+            }
         }
         public void MostarEstudiante(ref DataTable dt)
         {
@@ -47,7 +62,7 @@ namespace CapaDatos
             }
             finally { Conect.cerrar(); }
         }
-        public void editarestudiantes(int idestudiante,string ced, string NomA, string direc, int Edad, int cel, string correo, string nacionalidad)
+        public bool editarestudiantes(int idestudiante,string ced, string NomA, string direc, int Edad, int cel, string correo, string nacionalidad)
         {
             try
             {
@@ -63,13 +78,14 @@ namespace CapaDatos
                 cmd.Parameters.AddWithValue("@Correo", correo);
                 cmd.Parameters.AddWithValue("@Nacionalidad", nacionalidad);
                 cmd.ExecuteNonQuery();
-                
+                MessageBox.Show("Se actualizo el regitro con exito", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return true;
 
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-               
+                return false;
             }
             finally
             {

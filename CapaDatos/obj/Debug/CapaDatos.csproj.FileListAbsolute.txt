@@ -34,3 +34,15 @@ C:\Users\Claudia Guevara\OneDrive\Escritorio\Gerencia\Academia-main\CapaDatos\ob
 C:\Users\Claudia Guevara\OneDrive\Escritorio\Gerencia\Academia-main\CapaDatos\obj\Debug\CapaDatos.csproj.CopyComplete
 C:\Users\Claudia Guevara\OneDrive\Escritorio\Gerencia\Academia-main\CapaDatos\obj\Debug\CapaDatos.dll
 C:\Users\Claudia Guevara\OneDrive\Escritorio\Gerencia\Academia-main\CapaDatos\obj\Debug\CapaDatos.pdb
+C:\Users\Dixon Blandon\Source\Repos\ClaudiaG1207\AcademiaV2\CapaDatos\bin\Debug\CapaDatos.dll.config
+C:\Users\Dixon Blandon\Source\Repos\ClaudiaG1207\AcademiaV2\CapaDatos\bin\Debug\CapaDatos.dll
+C:\Users\Dixon Blandon\Source\Repos\ClaudiaG1207\AcademiaV2\CapaDatos\bin\Debug\CapaDatos.pdb
+C:\Users\Dixon Blandon\Source\Repos\ClaudiaG1207\AcademiaV2\CapaDatos\bin\Debug\BCrypt.Net.dll
+C:\Users\Dixon Blandon\Source\Repos\ClaudiaG1207\AcademiaV2\CapaDatos\bin\Debug\BCrypt.Net.xml
+C:\Users\Dixon Blandon\Source\Repos\ClaudiaG1207\AcademiaV2\CapaDatos\obj\Debug\CapaDatos.csproj.AssemblyReference.cache
+C:\Users\Dixon Blandon\Source\Repos\ClaudiaG1207\AcademiaV2\CapaDatos\obj\Debug\CapaDatos.Properties.Resources.resources
+C:\Users\Dixon Blandon\Source\Repos\ClaudiaG1207\AcademiaV2\CapaDatos\obj\Debug\CapaDatos.csproj.GenerateResource.cache
+C:\Users\Dixon Blandon\Source\Repos\ClaudiaG1207\AcademiaV2\CapaDatos\obj\Debug\CapaDatos.csproj.CoreCompileInputs.cache
+C:\Users\Dixon Blandon\Source\Repos\ClaudiaG1207\AcademiaV2\CapaDatos\obj\Debug\CapaDatos.csproj.CopyComplete
+C:\Users\Dixon Blandon\Source\Repos\ClaudiaG1207\AcademiaV2\CapaDatos\obj\Debug\CapaDatos.dll
+C:\Users\Dixon Blandon\Source\Repos\ClaudiaG1207\AcademiaV2\CapaDatos\obj\Debug\CapaDatos.pdb

@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\CapaDatos"
   ],
-  "SelectedNode": "\\ProyecAcademiaEuropea.sln",
+  "SelectedNode": "\\CapaDatos\\CD_Conexion.cs",
   "PreviewInSolutionExplorer": false
 }

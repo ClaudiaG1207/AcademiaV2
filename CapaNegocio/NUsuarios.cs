@@ -21,14 +21,15 @@ namespace CapaNegocio
             string ContrasenaHasheada = hashPassword.PasswordHash(Contrasena);
             Usuariop.Insertar( NombreUsuario, ContrasenaHasheada);
         }
+        public void EditarUS(int id, string NombreUsuario, string Contrasena)
+        {
+            string ContrasenaHasheada = hashPassword.PasswordHash(Contrasena);
+            Usuariop.editarUsuario(id, NombreUsuario, ContrasenaHasheada);
+        }
         public void MostarUsuarios(DataTable dt)
         {
             Usuariop.MostarUsuarios(ref dt);
-        }
-        public void EditarUS(int id, string usuario, string clave)
-        {
-            Usuariop.editarUsuario(id,usuario, clave);
-        }
+        }      
         public bool LoginUsuario(string NombreUsuario, string ContrasenaUser)
         {
             string PassHasheada = Usuariop.Login(NombreUsuario);
